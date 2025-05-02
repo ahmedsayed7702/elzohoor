@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-table { width:100%; border-collapse:collapse; margin:2rem 0; }
+    .admin-table th, .admin-table td { border:1px solid #eee; padding:0.5rem 0.7rem; text-align:center; }
+    .admin-table th { background:#f7c948; color:#181818; }
+    .admin-table img { max-width:60px; border-radius:8px; }
+    .edit-btn { background:#1b3c2e; color:#f7c948; border:none; border-radius:8px; padding:0.3rem 1rem; cursor:pointer; }
+    .edit-btn:hover { background:#f7c948; color:#1b3c2e; }
+    .modal-edit { display:none; position:fixed; left:0;top:0;right:0;bottom:0;z-index:9999;align-items:center;justify-content:center;background:rgba(0,0,0,0.18);}
+    .modal-edit-content { background:#fff; border-radius:14px; padding:2rem 1.5rem; min-width:260px; box-shadow:0 4px 32px #0002; position:relative; }
+    .modal-edit-content input[type="text"] { width:100%; margin-bottom:1rem; }
+    .modal-edit-content input[type="file"] { margin-bottom:1rem; }
+    .modal-edit-content img { max-width:100px; display:block; margin:0.5rem auto; }
+    .modal-edit-content button { margin:0 0.5rem; }
+    .messages-box { background:#fff; border-radius:14px; box-shadow:0 2px 16px #0001; padding:1.5rem; margin:2rem 0; }
+    .messages-box h2 { margin-top:0; color:#1b3c2e; }
+    .message-item { border-bottom:1px solid #eee; padding:0.5rem 0; }
+    .message-item:last-child { border-bottom:none; }
+    .message-item span { display:block; color:#888; font-size:0.95em; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="PSD2.PNG" alt="El-Zohor Logo" style="height:70px;max-width:320px;">
+    </div>
+    <h1 data-i18n="admin_panel">Admin Panel</h1>
+    <div style="margin-top:1rem;">
+      <select id="lang-select" style="padding:0.3rem 1rem;border-radius:20px;font-weight:600;background:#f7c948;color:#181818;border:none;outline:none;cursor:pointer;">
+        <option value="en">English</option>
+        <option value="ar">العربية</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="es">Español</option>
+        <option value="zh">中文</option>
+      </select>
+    </div>
+  </header>
+  <main>
+    <form id="productForm" style="margin-bottom:2rem;">
+      <input type="text" id="name" placeholder="Product Name" required data-i18n="name">
+      <select id="category">
+        <option value="import" data-i18n="import">Import</option>
+        <option value="export" data-i18n="export">Export</option>
+      </select>
+      <input type="file" id="image" accept="image/*" required>
+      <button type="submit" data-i18n="add_product">Add Product</button>
+    </form>
+    <div id="productPreview"></div>
+    <div id="productsTable"></div>
+    <div class="modal-edit" id="editModal">
+      <div class="modal-edit-content">
+        <h3 data-i18n="edit_product">Edit Product</h3>
+        <input type="text" id="editName" placeholder="Product Name" data-i18n="name">
+        <input type="file" id="editImage" accept="image/*">
+        <img id="editPreviewImg" src="" alt="" style="display:none;">
+        <div style="margin-top:1rem;">
+          <button id="saveEditBtn" class="edit-btn" data-i18n="save">Save</button>
+          <button id="cancelEditBtn" class="edit-btn" style="background:#888;color:#fff;" data-i18n="cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <div class="messages-box">
+      <h2 data-i18n="contact_messages">Contact Messages</h2>
+      <div id="messagesList"></div>
+    </div>
+  </main>
+  <script src="admin.js"></script>
+  <script src="lang.js"></script>
+  <script>
+    // لغة محفوظة
+    const langSelect = document.getElementById('lang-select');
+    if (localStorage.getItem('lang')) {
+      langSelect.value = localStorage.getItem('lang');
+    }
+    langSelect.onchange = function() {
+      setLang(this.value);
+    };
+  </script>
+</body>
+</html>

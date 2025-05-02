@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title data-i18n="contact">El-Zohor - Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .contact-hero {
+      background: linear-gradient(120deg, #f7c94822 0%, #e6f7e6 100%);
+      border-radius: 22px;
+      box-shadow: 0 4px 32px #f7c94833;
+      padding: 2.5rem 2rem 2rem 2rem;
+      max-width: 520px;
+      margin: 2.5rem auto 1.5rem auto;
+      text-align: center;
+      border: 2px solid #f7c948;
+      position: relative;
+      overflow: hidden;
+      animation: popIn 1.1s;
+    }
+    .contact-hero h1 {
+      font-size: 2.1rem;
+      color: #1b3c2e;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1px;
+    }
+    .contact-hero p {
+      color: #232d1b;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+    .contact-info-box {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px #f7c94822;
+      padding: 1.5rem 1rem;
+      margin: 2rem auto 2.5rem auto;
+      max-width: 420px;
+      text-align: center;
+      border: 1.5px solid #f7c948;
+      animation: fadeInUp 1.2s 0.2s both;
+    }
+    .contact-info-box h3 {
+      color: #1b3c2e;
+      margin-bottom: 0.7rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .contact-info-box .info-row {
+      font-size: 1.08rem;
+      line-height: 2;
+      margin-bottom: 0.3rem;
+    }
+    .contact-info-box a {
+      color: #1b3c2e;
+      text-decoration: underline;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .contact-info-box a:hover {
+      color: #f7c948;
+    }
+    .contact-form-outer {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .contact-form-box {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px #1b3c2e11;
+      padding: 2rem 1.5rem;
+      border: 1.5px solid #f7c948;
+      min-width: 320px;
+      max-width: 420px;
+      animation: fadeInUp 1.2s 0.3s both;
+    }
+    .contact-form-box label {
+      font-weight: 500;
+      color: #1b3c2e;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .contact-form-box input, .contact-form-box textarea {
+      padding: 0.7rem;
+      border: 1px solid #e6f7e6;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #f8fff6;
+      transition: border 0.2s;
+      margin-bottom: 1rem;
+    }
+    .contact-form-box input:focus, .contact-form-box textarea:focus {
+      border-color: #f7c948;
+      outline: none;
+    }
+    .contact-form-box button[type="submit"] {
+      background: #1b3c2e;
+      color: #f7c948;
+      border: none;
+      border-radius: 20px;
+      padding: 0.7rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #1b3c2e11;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .contact-form-box button[type="submit"]:hover {
+      background: #f7c948;
+      color: #1b3c2e;
+      transform: translateY(-2px) scale(1.04);
+    }
+    .contact-animated-bg {
+      position: absolute;
+      left: -60px; top: -60px;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, #f7c94855 60%, #fff0 100%);
+      border-radius: 50%;
+      z-index: 0;
+      animation: floatCircle 6s infinite alternate;
+    }
+    .contact-animated-bg2 {
+      position: absolute;
+      right: -40px; bottom: -40px;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, #e6f7e6 60%, #fff0 100%);
+      border-radius: 50%;
+      z-index: 0;
+      animation: floatCircle2 7s infinite alternate;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes floatCircle {
+      0% { transform: translateY(0);}
+      100% { transform: translateY(30px);}
+    }
+    @keyframes floatCircle2 {
+      0% { transform: translateY(0);}
+      100% { transform: translateY(-20px);}
+    }
+    @media (max-width: 900px) {
+      .contact-form-outer {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .contact-hero {
+        padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+      }
+      .contact-form-box, .contact-info-box {
+        min-width: 0;
+        max-width: 98vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="PSD2.PNG" alt="El-Zohor Logo" style="height:70px;max-width:320px;">
+      </div>
+      <div class="nav-links">
+        <select id="lang-select" style="padding:0.3rem 1rem;border-radius:20px;font-weight:600;background:#f7c948;color:#181818;border:none;outline:none;cursor:pointer;">
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Español</option>
+          <option value="zh">中文</option>
+        </select>
+        <a href="index.html" data-i18n="home">Home</a>
+        <a href="products.html" data-i18n="products">Products</a>
+        <a href="contact.html" data-i18n="contact">Contact Us</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="contact-hero" data-aos="zoom-in" data-aos-delay="100">
+      <div class="contact-animated-bg"></div>
+      <div class="contact-animated-bg2"></div>
+      <h1 data-i18n="contact">Contact Us</h1>
+      <p style="font-size:1.15rem;" data-i18n="contact_intro" data-aos="fade-up" data-aos-delay="200">
+        We are here to answer your questions and support your business. Reach out to us anytime!
+      </p>
+    </div>
+    <div class="contact-form-outer">
+      <div class="contact-form-box" data-aos="fade-right" data-aos-delay="300">
+        <form id="contactForm">
+          <label for="name" data-i18n="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          
+          <label for="email" data-i18n="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          
+          <label for="message" data-i18n="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          
+          <button type="submit" data-i18n="send">Send</button>
+        </form>
+      </div>
+      <div class="contact-info-box" data-aos="fade-left" data-aos-delay="400">
+        <h3 data-i18n="contact_info">Contact Information</h3>
+        <div class="info-row"><b data-i18n="phone1">Phone 1:</b> <a href="tel:+201095377533">+201095377533</a></div>
+        <div class="info-row"><b data-i18n="phone2">Phone 2:</b> <a href="tel:+201551919293">+201551919293</a></div>
+        <div class="info-row"><b data-i18n="email_label">Email:</b> <a href="mailto:INFO@EL-ZOHOR.COM">INFO@EL-ZOHOR.COM</a></div>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="lang.js"></script>
+  <script>
+    AOS.init({ duration: 900, once: true });
+    document.getElementById("contactForm").onsubmit = function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+      const messages = JSON.parse(localStorage.getItem("messages")) || [];
+      messages.push({ name, email, message });
+      localStorage.setItem("messages", JSON.stringify(messages));
+      alert("Message sent!");
+      this.reset();
+    };
+    // لغة محفوظة
+    const langSelect = document.getElementById('lang-select');
+    if (localStorage.getItem('lang')) {
+      langSelect.value = localStorage.getItem('lang');
+    }
+    langSelect.onchange = function() {
+      setLang(this.value);
+    };
+  </script>
+</body>
+</html>
